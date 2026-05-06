@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AEGYON Sample Reports & Deliverables</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif; background: linear-gradient(135deg, #0D1117 0%, #1a1f3a 100%); color: #FFFFFF; line-height: 1.6; overflow-x: hidden; }
+        header { background: rgba(26, 31, 58, 0.95); backdrop-filter: blur(10px); padding: 3rem 2rem; border-bottom: 2px solid #00CFDE; text-align: center; }
+        .logo { font-size: 2.5rem; font-weight: 900; margin-bottom: 1rem; color: #FFFFFF; letter-spacing: -1px; }
+        h1 { font-size: 2.8rem; font-weight: 700; margin-bottom: 0.5rem; color: #FFFFFF; }
+        .tagline { font-size: 1.1rem; color: rgba(255, 255, 255, 0.8); max-width: 600px; margin: 0 auto; font-weight: 300; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
+        .intro-section { background: rgba(255, 255, 255, 0.05); border-left: 4px solid #00CFDE; padding: 2rem; margin-bottom: 3rem; border-radius: 8px; }
+        .intro-section h2 { font-size: 1.5rem; margin-bottom: 1rem; color: #00CFDE; }
+        .intro-section p { font-size: 0.95rem; color: rgba(255, 255, 255, 0.85); margin-bottom: 1rem; line-height: 1.8; }
+        .audio-section { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(0, 207, 222, 0.3); border-radius: 12px; padding: 2rem; margin-bottom: 3rem; backdrop-filter: blur(10px); }
+        .audio-section h2 { font-size: 1.4rem; margin-bottom: 1rem; color: #00CFDE; }
+        audio { width: 100%; margin: 1rem 0; border-radius: 8px; }
+        .audio-description { font-size: 0.95rem; color: rgba(255, 255, 255, 0.8); margin-top: 1rem; }
+        .tier-section { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(0, 207, 222, 0.3); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; backdrop-filter: blur(10px); }
+        .tier-section h2 { font-size: 1.4rem; color: #00CFDE; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; cursor: pointer; }
+        .tier-section h2::before { content: "▼"; font-size: 0.9rem; transition: transform 0.3s; }
+        .tier-section.collapsed h2::before { transform: rotate(-90deg); }
+        .report-item { background: rgba(0, 207, 222, 0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 1rem; }
+        .report-item input[type="checkbox"] { margin-top: 0.25rem; cursor: pointer; width: 20px; height: 20px; accent-color: #00CFDE; }
+        .report-info { flex: 1; }
+        .report-name { font-weight: 600; color: #FFFFFF; margin-bottom: 0.25rem; font-size: 0.95rem; }
+        .report-description { font-size: 0.85rem; color: rgba(255, 255, 255, 0.7); line-height: 1.5; }
+        .report-link { display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.8rem; background: rgba(0, 207, 222, 0.2); color: #00CFDE; text-decoration: none; border-radius: 4px; font-size: 0.8rem; border: 1px solid rgba(0, 207, 222, 0.4); transition: all 0.3s; }
+        .report-link:hover { background: rgba(0, 207, 222, 0.4); border-color: #00CFDE; }
+        .controls { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 207, 222, 0.3); border-radius: 12px; padding: 2rem; margin-bottom: 3rem; text-align: center; }
+        .controls button { background: linear-gradient(135deg, #00CFDE, #00a8b8); color: #1a1f3a; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 600; cursor: pointer; margin: 0.5rem; transition: all 0.3s; }
+        .controls button:hover { opacity: 0.9; transform: scale(1.05); }
+        footer { background: rgba(26, 31, 58, 0.95); border-top: 1px solid rgba(0, 207, 222, 0.2); padding: 2rem; text-align: center; font-size: 0.85rem; color: rgba(255, 255, 255, 0.6); margin-top: 3rem; }
+        .reports-hidden { display: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Λ AEGYON</div>
+        <h1>Sample Reports & Deliverables</h1>
+        <p class="tagline">Browse the complete menu of structural analysis reports, decision frameworks, and governance protocols available under the partner engagement.</p>
+    </header>
+    <div class="container">
+        <a href="index.html" style="display: inline-block; color: #00CFDE; text-decoration: none; margin-bottom: 2rem; font-weight: 600;">← Back to Home</a>
+
+        <section class="audio-section">
+            <h2>2-Minute Partner Briefing</h2>
+            <audio controls style="width: 100%; border-radius: 8px;">
+                <source src="Aegyon-2min-Partner-Audio_structural_diagnostics.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <p class="audio-description">A quick overview of how structural diagnostics work and how consultants embed this into their client offerings.</p>
+        </section>
+
+        <section class="tier-section">
+            <h2 onclick="toggleTier(this.parentElement)">HTML Interactive Insights (Salesforce Sample)</h2>
+            <div class="tier-reports">
+                <div class="report-item">
+                    <input type="checkbox" id="report-field-brief" data-file="salesforce-field-brief.html">
+                    <div class="report-info">
+                        <div class="report-name">Field Brief (Interactive)</div>
+                        <div class="report-description">Tabbed working document. Structural domains, stress scenarios, governance RAG table, board dashboard bands, execution checklist, data gap register.</div>
+                        <a href="salesforce-field-brief.html" class="report-link" target="_blank">View HTML</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-competitive-comp" data-file="salesforce-competitive-comparison.html">
+                    <div class="report-info">
+                        <div class="report-name">Competitive Comparison</div>
+                        <div class="report-description">Side-by-side structural comparison against top competitors. Risk gap assessment and governance posture delta included.</div>
+                        <a href="salesforce-competitive-comparison.html" class="report-link" target="_blank">View HTML</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-decision-matrix" data-file="salesforce-decision-cornering-matrix.html">
+                    <div class="report-info">
+                        <div class="report-name">Decision Cornering Matrix</div>
+                        <div class="report-description">Forces binary choice on each critical decision point. Shows consequences in structural terms—runway, capital, competitive posture, regulatory exposure.</div>
+                        <a href="salesforce-decision-cornering-matrix.html" class="report-link" target="_blank">View HTML</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-thesis-watch" data-file="salesforce-thesis-invalidation-watch.html">
+                    <div class="report-info">
+                        <div class="report-name">Thesis Invalidation Watch</div>
+                        <div class="report-description">Operationalises falsifiability. States primary thesis, then lists signals that would invalidate it. Includes monitoring cadence and escalation thresholds.</div>
+                        <a href="salesforce-thesis-invalidation-watch.html" class="report-link" target="_blank">View HTML</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="intro-section">
+            <h2>Full Suite of Supporting Collaterals</h2>
+            <p>Below is the complete menu of <strong>42 supporting reports</strong> that accompany the structural dossier. Select the ones most relevant to your client engagement, or download the full suite.</p>
+            <p>Reports are organised by tier. Tiers 1–5 cover board readiness, stakeholder positioning, SME guidance, governance and macro continuity. Tier 6 contains the forced-decision and domain briefs. Cross-cutting compliance items sit at the end.</p>
+        </section>
+
+        <section class="controls">
+            <button onclick="selectAllReports()">Select All Reports</button>
+            <button onclick="deselectAllReports()">Deselect All</button>
+            <button onclick="showSelectedCount()">Show Selected Count</button>
+        </section>
+
+        <section class="tier-section">
+            <h2 onclick="toggleTier(this.parentElement)">Tier 1: Immediate Board & Leadership Readiness</h2>
+            <div class="tier-reports">
+                <div class="report-item">
+                    <input type="checkbox" id="report-ceo-brief" data-file="reports/aegyon-ceo-briefing-confidential.pdf">
+                    <div class="report-info">
+                        <div class="report-name">CEO Briefing (Confidential)</div>
+                        <div class="report-description">One-page distillation of forcing decisions, constraints, and optionality for executive action without board process delay.</div>
+                        <a href="reports/aegyon-ceo-briefing-confidential.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-board-resolution" data-file="reports/aegyon-board-resolution-example.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Board Resolution Example</div>
+                        <div class="report-description">Pre-drafted board motion language that translates structural exposure into a governance decision that can be tabled immediately.</div>
+                        <a href="reports/aegyon-board-resolution-example.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-hostile-board" data-file="reports/aegyon-pre-empting-hostile-board-qa.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Pre-Empting Hostile Board (Q&A)</div>
+                        <div class="report-description">Anticipated objections and evidence-based responses for defending the dossier's structural thesis against sceptical board members.</div>
+                        <a href="reports/aegyon-pre-empting-hostile-board-qa.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-chairmans-address" data-file="reports/aegyon-prepared-chairmans-address.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Prepared Chairman's Address</div>
+                        <div class="report-description">Board-opening statement that frames the dossier as a forcing-decision document, not advisory. Sets escalation expectations.</div>
+                        <a href="reports/aegyon-prepared-chairmans-address.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-board-brief-gov" data-file="reports/aegyon-board-brief-governance-liability.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Board Brief — Governance & Liability</div>
+                        <div class="report-description">Standalone briefing on governance gaps and personal-liability exposure for directors. Designed for an in-camera board session.</div>
+                        <a href="reports/aegyon-board-brief-governance-liability.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tier-section">
+            <h2 onclick="toggleTier(this.parentElement)">Tier 2: Stakeholder & External Positioning</h2>
+            <div class="tier-reports">
+                <div class="report-item">
+                    <input type="checkbox" id="report-ai-exposure" data-file="reports/aegyon-executive-working-brief-ai-exposure.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Executive Working Brief — AI Exposure</div>
+                        <div class="report-description">Standalone summary of AI acceleration vectors for executives focused on AI strategy without the full dossier.</div>
+                        <a href="reports/aegyon-executive-working-brief-ai-exposure.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-macro-exposure" data-file="reports/aegyon-executive-working-brief-macro-exposure.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Executive Working Brief — Macro Exposure</div>
+                        <div class="report-description">Standalone summary of macro and regulatory forces for executives focused on capital, funding, and competitive positioning.</div>
+                        <a href="reports/aegyon-executive-working-brief-macro-exposure.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-lender-readiness" data-file="reports/aegyon-lender-investment-readiness-testing.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Lender / Investment Readiness Testing</div>
+                        <div class="report-description">Vulnerability checklist for external stakeholders (lenders, investors, partners) to validate structural resilience claims.</div>
+                        <a href="reports/aegyon-lender-investment-readiness-testing.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-competitor-moves" data-file="reports/aegyon-anticipated-competitor-moves.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Anticipated Competitor Moves</div>
+                        <div class="report-description">Structured forecast of competitive responses to structural exposures identified, with defensive positioning options.</div>
+                        <a href="reports/aegyon-anticipated-competitor-moves.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-reg-authority" data-file="reports/aegyon-regulatory-authority-engagement-brief.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Regulatory Authority Engagement Brief</div>
+                        <div class="report-description">Approach memo for engaging regulators proactively on structural risk areas — what to disclose, in what order, and under what framing.</div>
+                        <a href="reports/aegyon-regulatory-authority-engagement-brief.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tier-section">
+            <h2 onclick="toggleTier(this.parentElement)">Tier 3: SME & Implementation Guidance</h2>
+            <div class="tier-reports">
+                <div class="report-item">
+                    <input type="checkbox" id="report-sme-ai" data-file="reports/aegyon-owner-sme-companion-ai-exposure.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Owner / SME Companion — AI Exposure</div>
+                        <div class="report-description">Technical deep-dive on AI governance, deployment risks, and control requirements for CTO/CIO implementation teams.</div>
+                        <a href="reports/aegyon-owner-sme-companion-ai-exposure.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-sme-macro" data-file="reports/aegyon-owner-sme-companion-macro-exposure.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Owner / SME Companion — Macro Exposure</div>
+                        <div class="report-description">Tactical summary of macro pressure pathways for CFO/Treasury teams managing liquidity and capital strategy.</div>
+                        <a href="reports/aegyon-owner-sme-companion-macro-exposure.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-cfo-brief" data-file="reports/aegyon-cfo-brief-capital-structure-debt.pdf">
+                    <div class="report-info">
+                        <div class="report-name">CFO Brief — Capital Structure & Debt</div>
+                        <div class="report-description">Treasurer-grade view of capital structure pressure points, covenant headroom, refinancing windows, and liquidity reserves.</div>
+                        <a href="reports/aegyon-cfo-brief-capital-structure-debt.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-coo-brief" data-file="reports/aegyon-coo-brief-operational-scaling.pdf">
+                    <div class="report-info">
+                        <div class="report-name">COO Brief — Operational Scaling</div>
+                        <div class="report-description">Operations-leader view of scaling constraints, supply-chain fragility, and execution capacity under stress.</div>
+                        <a href="reports/aegyon-coo-brief-operational-scaling.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tier-section">
+            <h2 onclick="toggleTier(this.parentElement)">Tier 4: Governance Installation & Control Doctrine</h2>
+            <div class="tier-reports">
+                <div class="report-item">
+                    <input type="checkbox" id="report-ai-control" data-file="reports/aegyon-ai-control-accountability-protocol.pdf">
+                    <div class="report-info">
+                        <div class="report-name">AI Control & Accountability Protocol</div>
+                        <div class="report-description">Board-approved operating policy defining approved AI use cases, prohibited deployments, vendor audit requirements, escalation rules.</div>
+                        <a href="reports/aegyon-ai-control-accountability-protocol.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-ai-escalation" data-file="reports/aegyon-ai-use-escalation-checklist.pdf">
+                    <div class="report-info">
+                        <div class="report-name">AI Use & Escalation Checklist</div>
+                        <div class="report-description">Day-to-day decision tool for staff: which AI deployments require approval, what triggers escalation, manual fallback procedures.</div>
+                        <a href="reports/aegyon-ai-use-escalation-checklist.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-human-transition" data-file="reports/aegyon-human-transition-legitimacy-protocol.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Human Transition & Legitimacy Protocol</div>
+                        <div class="report-description">Framework for managing staff concerns around AI adoption, role preservation, and transparent communication about decision-making authority.</div>
+                        <a href="reports/aegyon-human-transition-legitimacy-protocol.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-regulatory-watch" data-file="reports/aegyon-regulatory-liability-exposure-watch.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Regulatory & Liability Exposure Watch</div>
+                        <div class="report-description">Living dashboard of regulatory deadlines, compliance obligations, and enforcement risk timelines requiring board monitoring.</div>
+                        <a href="reports/aegyon-regulatory-liability-exposure-watch.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-role-delineation" data-file="reports/aegyon-managementai-role-delineation-sop.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Management–AI Role Delineation SOP</div>
+                        <div class="report-description">Clear written standard defining which decisions remain human-owned, which can use AI advisory, which are AI-only.</div>
+                        <a href="reports/aegyon-managementai-role-delineation-sop.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-staff-impact" data-file="reports/aegyon-staff-impact-signal-management-checklist.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Staff Impact & Signal Mgmt Checklist</div>
+                        <div class="report-description">Communication roadmap for internal teams: what to say, when to say it, how to prevent rumour-driven resistance.</div>
+                        <a href="reports/aegyon-staff-impact-signal-management-checklist.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-regulatory-audit" data-file="reports/aegyon-regulatory-readiness-self-test.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Regulatory Readiness Self-Test</div>
+                        <div class="report-description">Audit checklist: governance framework completeness, data handling compliance, transparency reporting, incident response readiness.</div>
+                        <a href="reports/aegyon-regulatory-readiness-self-test.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-data-priv" data-file="reports/aegyon-data-handling-privacy-protocol.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Data Handling & Privacy Protocol</div>
+                        <div class="report-description">Working policy for data classification, retention, access controls and privacy-by-design — sized for SMEs that don't run a full DPO function.</div>
+                        <a href="reports/aegyon-data-handling-privacy-protocol.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-data-priv-alt" data-file="reports/aegyon-data-handling-privacy-protocol-alt.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Data Handling & Privacy Protocol (alternate version)</div>
+                        <div class="report-description">Variant draft of the data-handling protocol, retained as a comparison for clients with different jurisdictional emphasis.</div>
+                        <a href="reports/aegyon-data-handling-privacy-protocol-alt.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tier-section">
+            <h2 onclick="toggleTier(this.parentElement)">Tier 5: Macro Intelligence & Strategic Continuity</h2>
+            <div class="tier-reports">
+                <div class="report-item">
+                    <input type="checkbox" id="report-macro-translation" data-file="reports/aegyon-macro-pressure-translation-protocol.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Macro Pressure Translation Protocol</div>
+                        <div class="report-description">Framework for translating macro signals (interest rates, unemployment, policy shifts) into specific forcing decisions for leadership.</div>
+                        <a href="reports/aegyon-macro-pressure-translation-protocol.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-macro-escalation" data-file="reports/aegyon-macro-escalation-checklist.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Macro Escalation Checklist</div>
+                        <div class="report-description">Trigger-based decision tool: which macro conditions force board action, which require contingency activation, which demand strategic pivot.</div>
+                        <a href="reports/aegyon-macro-escalation-checklist.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-competitive-durability" data-file="reports/aegyon-competitive-position-durability-protocol.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Competitive Position Durability Protocol</div>
+                        <div class="report-description">Quarterly review framework for testing whether competitive advantages survive macro stress and AI-driven structural reordering.</div>
+                        <a href="reports/aegyon-competitive-position-durability-protocol.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-capital-discipline" data-file="reports/aegyon-capital-discipline-optionality-framework.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Capital Discipline & Optionality Framework</div>
+                        <div class="report-description">Capital allocation doctrine: which investments are defensible under stress, which must be deferred, when optionality disappears.</div>
+                        <a href="reports/aegyon-capital-discipline-optionality-framework.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-macro-liability" data-file="reports/aegyon-macro-liability-exposure-watch.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Macro-Liability Exposure Watch</div>
+                        <div class="report-description">Living monitor of external forces (regulation, competition, capital markets) that could trigger material liability or forced restructuring.</div>
+                        <a href="reports/aegyon-macro-liability-exposure-watch.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-capital-covenant" data-file="reports/aegyon-capital-constraint-covenant-risk.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Capital Constraint & Covenant Risk</div>
+                        <div class="report-description">Stress map of debt covenants, headroom erosion paths, and the order in which constraints would bite under adverse scenarios.</div>
+                        <a href="reports/aegyon-capital-constraint-covenant-risk.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-market-shift" data-file="reports/aegyon-market-shift-vulnerability.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Market Shift Vulnerability</div>
+                        <div class="report-description">Structural read of exposure to category-level shifts — substitution, regulatory rework, demand-side reordering.</div>
+                        <a href="reports/aegyon-market-shift-vulnerability.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-synergy-risk" data-file="reports/aegyon-synergy-risk-integration-audit.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Synergy Risk & Integration Audit</div>
+                        <div class="report-description">Honest read on M&A synergy assumptions and integration friction, isolating the synergies that survive contact with reality.</div>
+                        <a href="reports/aegyon-synergy-risk-integration-audit.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-regulatory-forcing" data-file="reports/aegyon-regulatory-forcing-events.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Regulatory Forcing Events</div>
+                        <div class="report-description">Map of upcoming regulatory deadlines and threshold events that will mechanically force a decision — not opinion, schedule.</div>
+                        <a href="reports/aegyon-regulatory-forcing-events.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tier-section">
+            <h2 onclick="toggleTier(this.parentElement)">Tier 6: Forced-Decision Mapping & Time Horizons</h2>
+            <div class="tier-reports">
+                <div class="report-item">
+                    <input type="checkbox" id="report-12mo-map" data-file="reports/aegyon-12-month-forced-decision-map.pdf">
+                    <div class="report-info">
+                        <div class="report-name">12-Month Forced Decision Map</div>
+                        <div class="report-description">Decisions the company will be forced to make inside the next 12 months, with the constraint that drives each one and the latest moment to act.</div>
+                        <a href="reports/aegyon-12-month-forced-decision-map.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-1824-window" data-file="reports/aegyon-1824-month-constraint-window.pdf">
+                    <div class="report-info">
+                        <div class="report-name">18–24 Month Constraint Window</div>
+                        <div class="report-description">The mid-horizon view: constraints that aren't biting today but will converge inside the 18–24 month window. Where strategic optionality is still cheap.</div>
+                        <a href="reports/aegyon-1824-month-constraint-window.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-35yr-risk" data-file="reports/aegyon-35-year-structural-risk.pdf">
+                    <div class="report-info">
+                        <div class="report-name">3–5 Year Structural Risk</div>
+                        <div class="report-description">Long-horizon structural risk view. Used to test whether today's strategy assumes conditions that will not survive the planning window.</div>
+                        <a href="reports/aegyon-35-year-structural-risk.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-decision-traceability" data-file="reports/aegyon-decision-traceability-snapshot.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Decision Traceability Snapshot</div>
+                        <div class="report-description">Audit-friendly record of who decided what, with what evidence, against which structural constraint, and when.</div>
+                        <a href="reports/aegyon-decision-traceability-snapshot.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-macro-traceability" data-file="reports/aegyon-macro-decision-traceability-snapshot.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Macro Decision Traceability Snapshot</div>
+                        <div class="report-description">As above, but specifically for macro-driven decisions — links each decision back to the macro signal and the policy or rate move that prompted it.</div>
+                        <a href="reports/aegyon-macro-decision-traceability-snapshot.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-enforcement-timeline" data-file="reports/aegyon-enforcement-timeline-transition-plan.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Enforcement Timeline & Transition Plan</div>
+                        <div class="report-description">Concrete schedule for moving from current posture to enforcement-ready posture, broken down by milestone, owner, and proof point.</div>
+                        <a href="reports/aegyon-enforcement-timeline-transition-plan.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tier-section">
+            <h2 onclick="toggleTier(this.parentElement)">Cross-Cutting: Compliance & Readiness</h2>
+            <div class="tier-reports">
+                <div class="report-item">
+                    <input type="checkbox" id="report-org-strain" data-file="reports/aegyon-organisational-strain-signal-checklist.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Organisational Strain & Signal Checklist</div>
+                        <div class="report-description">Early-warning indicators of internal stress (attrition, morale, execution slippage) that signal macro pressure cascading into operations.</div>
+                        <a href="reports/aegyon-organisational-strain-signal-checklist.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-regulatory-direction" data-file="reports/aegyon-regulatory-directionality-self-test.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Regulatory Directionality Self-Test</div>
+                        <div class="report-description">Framework for assessing whether regulatory trends are hardening or softening, and what strategic repositioning is required.</div>
+                        <a href="reports/aegyon-regulatory-directionality-self-test.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-regulatory-scorecard" data-file="reports/aegyon-regulatory-readiness-scorecard.pdf">
+                    <div class="report-info">
+                        <div class="report-name">AI Regulatory Readiness Scorecard</div>
+                        <div class="report-description">Quantified compliance posture: governance framework (0–100%), data handling (0–100%), transparency reporting (0–100%), incident response (0–100%).</div>
+                        <a href="reports/aegyon-regulatory-readiness-scorecard.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <input type="checkbox" id="report-accountability" data-file="reports/aegyon-accountability-protocol.pdf">
+                    <div class="report-info">
+                        <div class="report-name">Accountability Structure Assessment</div>
+                        <div class="report-description">Organisational audit: board-level accountability, C-suite role clarity, staff delegation limits, external stakeholder assurance.</div>
+                        <a href="reports/aegyon-accountability-protocol.pdf" class="report-link" download>Download PDF</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="controls">
+            <button onclick="downloadSelected()">Show Selected Reports</button>
+            <button onclick="resetSelection()">Reset Selection</button>
+        </section>
+    </div>
+
+    <footer>
+        <p>AEGYON — Structural Diagnostics for Partners</p>
+        <p>Sample Reports & Supporting Collaterals | Confidential</p>
+        <p style="margin-top: 1rem;"><a href="https://aegyon.com" style="color: #00CFDE; text-decoration: none; font-weight: 600;">aegyon.com</a> | <a href="mailto:partners@aegyon.com" style="color: #00CFDE; text-decoration: none; font-weight: 600;">partners@aegyon.com</a></p>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">© 2026 AEGYON. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleTier(element) {
+            element.classList.toggle('collapsed');
+            const reportsDiv = element.querySelector('.tier-reports');
+            if (reportsDiv) {
+                reportsDiv.classList.toggle('reports-hidden');
+            }
+        }
+        function selectAllReports() {
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = true);
+        }
+        function deselectAllReports() {
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+        }
+        function showSelectedCount() {
+            const selected = document.querySelectorAll('input[type="checkbox"]:checked').length;
+            alert('You have selected ' + selected + ' report(s)');
+        }
+        function downloadSelected() {
+            const selected = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+                .map(cb => cb.getAttribute('data-file'));
+            if (selected.length === 0) {
+                alert('Please select at least one report.');
+                return;
+            }
+            alert('You selected ' + selected.length + ' report(s):\n\n' + selected.join('\n') + '\n\nClick the individual Download PDF or View HTML links to access them.');
+        }
+        function resetSelection() {
+            deselectAllReports();
+        }
+    </script>
+</body>
+</html>
